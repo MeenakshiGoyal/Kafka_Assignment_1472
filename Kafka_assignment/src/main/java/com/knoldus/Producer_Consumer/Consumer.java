@@ -33,16 +33,12 @@ public class Consumer {
                 for (ConsumerRecord<String, DataModel> record : records) {
                     System.out.println("Employee id= " + String.valueOf(record.value().getId()) + " Employee Name = " + record.value().getName() + " Employee Age = " + record.value().getAge() + " Employee Course = " + record.value().getCourse());
                     fileWriter.append(objectmapper.writeValueAsString(record.value()) + "\n");
-                    // method that would be writing this value to a file.
+                   
                 }
                 fileWriter.close();
  }
-
         }
-
-
-
-        catch (Exception e){
+       catch (Exception e){
             System.out.println(e);
         }
         finally {
